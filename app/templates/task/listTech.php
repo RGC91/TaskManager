@@ -60,12 +60,18 @@ else{ ?>
 	<tbody>
 		<?php foreach ($tasks as $task):
 		?>
-			
+
 
 			<tr>
+				<?php if(($task->getTech()->getMail() == $_SESSION['mail']) OR ($task->getTech()->getMail() == null)  ){?>
 				<td>
 					<a href="../showTask/<?=$task->getId();?>"><?=$task->getName();?></a>
 				</td>
+				<?php }else{ ?>
+				<td>
+					<?=$task->getName();?>
+				</td>
+				<?php } ?>
 				<td>
 					<?=$task->getClient()->getName();?>
 				</td>
